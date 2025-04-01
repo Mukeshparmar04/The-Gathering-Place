@@ -1,38 +1,238 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* body {
+  background-color: rgb(249, 251, 252); 
+  background-image: url('back2.jpeg');
+  background-size: cover; 
+  background-position: center; 
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  color: #0d0d0d; 
+  padding: 2vh;
+} */
+
+/* .cont1{
+  background-color: rgb(174, 194, 201);
+  margin-top: 50px;
+  
+} */
+
+
+
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4; /* Light Gray background */
+  color: #333; /* Dark Gray text */
+  line-height: 1.6;
+}
+
+
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.floating-buttons a {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.floating-buttons a.btn-primary {
+  background-color: #007bff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.floating-buttons a.btn-success {
+  background-color: #28a745;
+}
+
+.dark-navbar{
+  background-color: #343a40;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #3498db; /* Blue Navbar */
+  color: white;
+}
+
+.navbar .navbar-brand {
+  color: white;
+  font-weight: bold;
+}
+
+.navbar .nav-link {
+  color: white;
+}
+
+.navbar .nav-link.active {
+  font-weight: bold;
+}
+
+.navbar .dropdown-menu {
+  background-color: #3498db;
+}
+
+.navbar .dropdown-item {
+  color: white;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #2980b9;
+}
+
+.navbar .btn-primary {
+  background-color: #74acec; /* Green Search Button */
+  border-color: #3498db;
+}
+
+.navbar .btn-primary:hover {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-success {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.btn-success:hover {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+/* Card Styling */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.card-title {
+  color: #34495e; /* Dark Blue card titles */
+}
+
+.card-text {
+  color: #555;
+}
+
+/* Link Styling */
+a {
+  color: #3498db; /* Blue links */
+  text-decoration: none;
+}
+
+a:hover {
+  /* text-decoration: underline; */
+   /* scale: 1.05; */
+  transition: scale 0.2s;
+}
+
+/* Form Styling */
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* Floating Buttons */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+/* User Profile styling */
+
+.user-profile-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile-info h2 {
+  margin: 0 0 5px;
+}
+
+.bio {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.location,
+.joined {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.5em;
+  font-weight: bold;
+  display: block;
+}
+
+.stat-label {
+  color: #666;
+}
+
+.profile-contact p{
+  font-size: 1em;
 }
