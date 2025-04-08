@@ -13,10 +13,10 @@ const FeedItems = () => {
   ];
 
   return (
-    <div className="row">
+    <div className="row g-3 bg-transparent">
       {feedData.map((item, index) => (
         <div className="col-md-6 mb-4" key={index}>
-          <div className="card h-100">
+          <div className="card h-100 bg-transparent shadow-lg">
             <img src={item.imageUrl} className="card-img-top" alt={item.title} style={{height: "200px", objectFit:"cover"}}/>
             <div className="card-body">
               <h5 className="card-title">{item.title}</h5>

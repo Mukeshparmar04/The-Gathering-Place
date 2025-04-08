@@ -23,10 +23,14 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4; /* Light Gray background */
+  background-color: lightgrey; /* Light Gray background */
   color: #333; /* Dark Gray text */
   line-height: 1.6;
+  width: 100vw;
+  overflow-x: hidden; 
 }
+
+
 
 
 .floating-buttons {
@@ -60,17 +64,17 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* Navbar Styling */
 .navbar {
-  background-color: #3498db; /* Blue Navbar */
-  color: white;
+  background-color: white;
+  color: darkgray;
 }
 
 .navbar .navbar-brand {
-  color: white;
+  color: rgb(100, 79, 79);
   font-weight: bold;
 }
 
@@ -83,7 +87,7 @@ body {
 }
 
 .navbar .dropdown-menu {
-  background-color: #3498db;
+  background-color: darkgray;
 }
 
 .navbar .dropdown-item {
@@ -91,16 +95,17 @@ body {
 }
 
 .navbar .dropdown-item:hover {
-  background-color: #2980b9;
+  background-color: lightgray;
 }
 
 .navbar .btn-primary {
-  background-color: #74acec; /* Green Search Button */
+  background-color: #3498db;
   border-color: #3498db;
+  border-radius: 30px;
 }
 
 .navbar .btn-primary:hover {
-  background-color: #3498db;
+  background-color: blue;
   border-color: #3498db;
 }
 
@@ -236,3 +241,35 @@ a:hover {
 .profile-contact p{
   font-size: 1em;
 }
+
+
+
+/* Dark/light mood toggle */
+
+body.dark-mode {
+  background-color: darkgray; /* Dark background */
+  color: black; /* Light text */
+}
+
+body.dark-mode nav {
+    background-color: lightgray;
+    color:black;
+}
+
+body.dark-mode button {
+    background-color: darkgray;
+    /* color: #fff; */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+body button {
+    background-color: #f0f0f0;
+    color: #000;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+/* Add more dark-mode styles as needed */
