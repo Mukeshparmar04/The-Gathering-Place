@@ -93,7 +93,7 @@ const Home = ({ showSidebar }) => {
                   Others
                 </h6>
 
-                {isLoggedIn && (
+                {/* {isLoggedIn && (
                   <Link
                     id="userProfile"
                     className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
@@ -102,11 +102,11 @@ const Home = ({ showSidebar }) => {
                     <i className="fa-solid fa-user"></i>
                     <span className="mx-2">User Profile</span>
                   </Link>
-                )}
+                )} */}
 
                 {isLoggedIn && (
                   <Link
-                    id="userProfile"
+                    id="members"
                     className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
                     to="/members"
                   >

@@ -166,7 +166,7 @@ const Navbar = ({ children, onToggleSidebar }) => {
                     aria-expanded="false"
                     className="dropdown-toggle rounded-circle shadow-lg"
                     height="40"
-                    src="user-profil1.jpg"
+                    src="pp.jpg"
                     width="40"
                   />
                   <ul className="dropdown-menu dropdown-menu-end">

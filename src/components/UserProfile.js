@@ -16,12 +16,12 @@ const UserProfile = ({ showSidebar }) => {
   const [profileData, setProfileData] = useState({
     firstName: "Mukesh",
     lastName: "Parmar",
-    email: "carrytom@gmail.com",
+    email: "mukeshpiploda2002@gmail.com",
     phone: "+91 881 524 2848",
     bio: "Team Manager",
     country: "India",
     cityState: "Indore, Madhya Pradesh",
-    houseStreet: "02, Lig",
+    houseStreet: "02, Shiv Sakti Nagar, Lig",
     postalCode: "452011",
   });
 
@@ -110,7 +110,7 @@ const UserProfile = ({ showSidebar }) => {
               </Link>
               <div className="mt-4">
                 <h6 className="text-muted fw-bold text-uppercase px-2">Others</h6>
-                {isLoggedIn && (
+                {/* {isLoggedIn && (
                   <Link
                     id="userProfile"
                     className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
@@ -119,11 +119,11 @@ const UserProfile = ({ showSidebar }) => {
                     <i className="fa-solid fa-user"></i>
                     <span className="mx-2">User Profile</span>
                   </Link>
-                )}
+                )} */}
 
                 {isLoggedIn && (
                   <Link
-                    id="userProfile"
+                    id="members"
                     className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
                     to="/members"
                   >

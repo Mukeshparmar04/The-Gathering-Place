@@ -72,7 +72,7 @@ const Login = () => {
                 <div className="form-check">
                   <input className="form-check-input" type="checkbox" />
                   <label className="form-check-label text-secondary">
-                    Keep me logged in
+                    Login as Admin
                   </label>
                 </div>
                 <Link className="text-primary" to="/forgot-password">

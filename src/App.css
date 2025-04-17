@@ -38,7 +38,10 @@ body {
       radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 11%, rgba(255, 255, 255, 0.4) 13%, rgba(255, 255, 255, 0) 14%) 130px var(--y-offset-5, 370px),
       radial-gradient(rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.1) 11%, rgba(255, 255, 255, 0.2) 13%, rgba(255, 255, 255, 0) 14%) 0 var(--y-offset-6, 0px),
       /* linear-gradient(135deg, #000000, #5e4670, lightgray , #5e4670, #000000);  */
-      linear-gradient(135deg, Gray,lightgray, white ,lightgray, Gray); 
+      /* linear-gradient(135deg, Gray,lightgray, white ,lightgray, Gray);  */
+      /* linear-gradient(135deg, #98a18c, #babca7, #d0cbb2 , #969e8c, #515958);  */
+      /* linear-gradient(135deg, #e75874, #be1558, #d0cbb2 , #fbcbc9, #322514);  */
+      linear-gradient(135deg, #ddc3a5, #daf2dc, #c6d7eb); 
       /* linear-gradient(135deg, darkblue , blue, lightblue , blue, darkblue);  */
       /* linear-gradient(135deg, white, rgb(122, 89, 89),Gray, darkgray, black);  */
       /* linear-gradient(135deg, #ff9966, #ff5e62); */
