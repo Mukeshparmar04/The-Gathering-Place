@@ -12,7 +12,9 @@ import UpcomingEvents from './components/UpcomingEvents';
 import UserProfile from './components/UserProfile';
 import ForgotPassword from './components/ForgotPassword';
 import ChangePassword from './components/ChangePassword';
+import EventCalendar from './components/EventCalendar';
 import { useState } from 'react';
+import Members from './components/Members';
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -30,9 +32,11 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} />
           <Route path="/upcoming-events" element={<UpcomingEvents showSidebar={showSidebar} />} />
+          <Route path="/event-calendar" element={<EventCalendar />} />
           <Route path="/registation" element={<Registation />} />
           <Route path="/main" element={<Main />} />
           <Route path="/userprofile" element={<UserProfile showSidebar={showSidebar} />} />
+          <Route path="/members" element={<Members showSidebar={showSidebar} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />

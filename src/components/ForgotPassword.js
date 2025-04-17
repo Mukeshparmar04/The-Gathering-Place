@@ -31,6 +31,7 @@ const ForgotPassword = () => {
                     id="email"
                     type="email"
                     placeholder="Enter your email"
+                    required
                   />
                 </div>
 
