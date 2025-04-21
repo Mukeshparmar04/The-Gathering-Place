@@ -9,16 +9,14 @@ function UpcomingEvents({ showSidebar }) {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
   });
+  // eslint-disable-next-line no-unused-vars
+  const [isAdmin, setIsAdmin] = useState(() => {
+    return localStorage.getItem("isAdmin") === "true";
+  });
 
   const handleEventClick = (event) => {
-    // Handle event click here, e.g., show event details or navigate to a new page
     console.log("Event clicked:", event);
-  };  
-
-  
-
-
-
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,8 +30,8 @@ function UpcomingEvents({ showSidebar }) {
   }, []);
 
   useEffect(() => {
-      localStorage.setItem("isLoggedIn", isLoggedIn ? "true" : "false")
-  }, [isLoggedIn])
+    localStorage.setItem("isLoggedIn", isLoggedIn ? "true" : "false");
+  }, [isLoggedIn]);
 
   const events = [
     {
@@ -55,34 +53,33 @@ function UpcomingEvents({ showSidebar }) {
       description: "End of year celebration for the community.",
     },
   ];
-  
+
   useEffect(() => {
-            let yOffset1 = 0;
-            let yOffset2 = 0;
-            let yOffset3 = 110;
-            let yOffset4 = -170;
-            let yOffset5 = 370;
-            let yOffset6 = 0;
-    
-            const intervalId = setInterval(() => {
-                yOffset1 += 1;
-                yOffset2 += 1;
-                yOffset3 += 1;
-                yOffset4 += 1;
-                yOffset5 += 1;
-                yOffset6 += 1;
-    
-                document.body.style.setProperty('--y-offset-1', `${yOffset1}px`);
-                document.body.style.setProperty('--y-offset-2', `${yOffset2}px`);
-                document.body.style.setProperty('--y-offset-3', `${yOffset3}px`);
-                document.body.style.setProperty('--y-offset-4', `${yOffset4}px`);
-                document.body.style.setProperty('--y-offset-5', `${yOffset5}px`);
-                document.body.style.setProperty('--y-offset-6', `${yOffset6}px`);
-            }, 100);
-    
-            return () => clearInterval(intervalId); // Cleanup on unmount
-        }, []);
-  
+    let yOffset1 = 0;
+    let yOffset2 = 0;
+    let yOffset3 = 110;
+    let yOffset4 = -170;
+    let yOffset5 = 370;
+    let yOffset6 = 0;
+
+    const intervalId = setInterval(() => {
+      yOffset1 += 1;
+      yOffset2 += 1;
+      yOffset3 += 1;
+      yOffset4 += 1;
+      yOffset5 += 1;
+      yOffset6 += 1;
+
+      document.body.style.setProperty("--y-offset-1", `${yOffset1}px`);
+      document.body.style.setProperty("--y-offset-2", `${yOffset2}px`);
+      document.body.style.setProperty("--y-offset-3", `${yOffset3}px`);
+      document.body.style.setProperty("--y-offset-4", `${yOffset4}px`);
+      document.body.style.setProperty("--y-offset-5", `${yOffset5}px`);
+      document.body.style.setProperty("--y-offset-6", `${yOffset6}px`);
+    }, 100);
+
+    return () => clearInterval(intervalId); // Cleanup on unmount
+  }, []);
 
   return (
     <main className="background-animation">
@@ -102,14 +99,14 @@ function UpcomingEvents({ showSidebar }) {
             </div>
             <div className="mt-2 fw-bold text-center text-lg-start">
               <Link
-                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                 to="/"
               >
                 <i className="fa-solid fa-house"></i>
                 <span className="mx-2">Dashboard</span>
               </Link>
               <Link
-                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                 to="/upcoming-events"
               >
                 <i className="fa-solid fa-calendar-days"></i>
@@ -120,9 +117,9 @@ function UpcomingEvents({ showSidebar }) {
                   Others
                 </h6>
                 {/* {isLoggedIn && (
-                  <Link
+                  <Link 
                     id="userProfile"
-                    className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                    className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none" 
                     to="/userprofile"
                   >
                     <i className="fa-solid fa-user"></i>
@@ -130,27 +127,27 @@ function UpcomingEvents({ showSidebar }) {
                   </Link>
                 )} */}
 
-                {isLoggedIn && (
+                {(isAdmin && isLoggedIn) && (
                   <Link
                     id="members"
-                    className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                    className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                     to="/members"
                   >
-                    <i class="fa-solid fa-users"></i>
+                    <i className="fa-solid fa-users"></i>
                     <span className="mx-2">Members</span>
                   </Link>
                 )}
 
                 <Link
                   id="donation"
-                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                   to="/donation"
                 >
                   <i className="fa-solid fa-hand-holding-dollar"></i>
                   <span className="mx-2">Donation</span>
                 </Link>
                 <Link
-                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                   to="#"
                 >
                   <i className="fas fa-lock"></i>
@@ -162,7 +159,7 @@ function UpcomingEvents({ showSidebar }) {
         )}
 
         <div className="main-content p-4 w-100">
-          <div className="container shadow-lg p-4 rounded-5">
+          <div className="container shadow-lg p-4 mb-4 rounded-5">
             <div className="row">
               <div className="col-12">
                 <div className="container">
@@ -186,10 +183,9 @@ function UpcomingEvents({ showSidebar }) {
               </div>
             </div>
           </div>
-          <div>
+          <div className="container shadow-lg p-4 rounded-5">
             <h2 className="fw-bold mb-4 mt-4">Event Calendar</h2>
             <EventCalendar events={events} onEventClick={handleEventClick} />
-
           </div>
         </div>
       </div>

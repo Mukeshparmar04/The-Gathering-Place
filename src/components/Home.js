@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Events from "./Events";
 import Feed from "./Feed";
-// import "./BackgroundAnimation.css"; // Import the CSS file for background animation
 import { Link } from "react-router-dom";
 
 const Home = ({ showSidebar }) => {
@@ -10,6 +9,10 @@ const Home = ({ showSidebar }) => {
   // eslint-disable-next-line no-unused-vars
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
+  });
+  // eslint-disable-next-line no-unused-vars
+    const [isAdmin, setIsAdmin] = useState(() => {
+    return localStorage.getItem("isAdmin") === "true";
   });
 
   useEffect(() => {
@@ -55,12 +58,10 @@ const Home = ({ showSidebar }) => {
   }, []);
 
   return (
-    // <main className="" style={{ backgroundImage: "url('bg.webp')" }}>
     <main className="background-animation ">
       <div className="d-flex flex-column flex-lg-row">
         {showSidebar && (
-          <div className="shadow-lg sidebar px-4">
-            {/* ... (rest of the sidebar content) ... */}
+          <div className="shadow-lg sidebar px-4" style={{position: 'sticky'}}>
             <div className="p-4 d-flex flex-column align-items-center">
               <div className="d-flex justify-content-center rounded-lg shadow-md">
                 <img
@@ -74,25 +75,24 @@ const Home = ({ showSidebar }) => {
             </div>
             <div className="mt-2 fw-bold text-center text-lg-start">
               <Link
-                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                className="d-flex flex-column flex-lg-row text-decoration-none align-items-center p-2 text-dark"
                 to="/"
               >
                 <i className="fa-solid fa-house"></i>
-                <span className="mx-2">Dashboard</span>
+                <span className="mx-2 ">Dashboard</span>
               </Link>
               <Link
-                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                 to="/upcoming-events"
               >
                 <i className="fa-solid fa-calendar-days"></i>
-                <span className="mx-2">Upcoming Events</span>
+                <span className="mx-2 ">Upcoming Events</span>
               </Link>
 
               <div className="mt-4 user-profile">
                 <h6 className="text-muted fw-bold text-uppercase px-2">
                   Others
                 </h6>
-
                 {/* {isLoggedIn && (
                   <Link
                     id="userProfile"
@@ -104,27 +104,27 @@ const Home = ({ showSidebar }) => {
                   </Link>
                 )} */}
 
-                {isLoggedIn && (
+                {(isAdmin && isLoggedIn) && (
                   <Link
                     id="members"
-                    className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                    className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                     to="/members"
                   >
-                    <i class="fa-solid fa-users"></i>
+                    <i className="fa-solid fa-users"></i>
                     <span className="mx-2">Members</span>
                   </Link>
                 )}
 
                 <Link
                   id="donation"
-                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                   to="/donation"
                 >
                   <i className="fa-solid fa-hand-holding-dollar"></i>
                   <span className="mx-2">Donation</span>
                 </Link>
                 <Link
-                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                   to="#"
                 >
                   <i className="fas fa-lock"></i>

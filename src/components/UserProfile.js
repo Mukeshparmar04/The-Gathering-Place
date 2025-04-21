@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const UserProfile = ({ showSidebar }) => {
+  // eslint-disable-next-line no-unused-vars
   const [isMobileView, setIsMobileView] = useState(false);
+  // State to manage login status and admin status
+  // eslint-disable-next-line no-unused-vars
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
+  });
+  // State to manage admin status
+  // eslint-disable-next-line no-unused-vars
+  const [isAdmin, setIsAdmin] = useState(() => {
+    return localStorage.getItem("isAdmin") === "true";
   });
 
   // State to manage edit mode for different sections
@@ -20,7 +28,8 @@ const UserProfile = ({ showSidebar }) => {
     phone: "+91 881 524 2848",
     bio: "Team Manager",
     country: "India",
-    cityState: "Indore, Madhya Pradesh",
+    city: "Indore",
+    state: "Madhya Pradesh",
     houseStreet: "02, Shiv Sakti Nagar, Lig",
     postalCode: "452011",
   });
@@ -95,14 +104,14 @@ const UserProfile = ({ showSidebar }) => {
             </div>
             <div className="mt-2 fw-bold text-center text-lg-start">
               <Link
-                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                 to="/"
               >
                 <i className="fa-solid fa-house"></i>
                 <span className="mx-2">Dashboard</span>
               </Link>
               <Link
-                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                 to="/upcoming-events"
               >
                 <i className="fa-solid fa-calendar-days"></i>
@@ -110,21 +119,11 @@ const UserProfile = ({ showSidebar }) => {
               </Link>
               <div className="mt-4">
                 <h6 className="text-muted fw-bold text-uppercase px-2">Others</h6>
-                {/* {isLoggedIn && (
-                  <Link
-                    id="userProfile"
-                    className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
-                    to="/userprofile"
-                  >
-                    <i className="fa-solid fa-user"></i>
-                    <span className="mx-2">User Profile</span>
-                  </Link>
-                )} */}
 
-                {isLoggedIn && (
+                {(isAdmin && isLoggedIn) && (
                   <Link
                     id="members"
-                    className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                    className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                     to="/members"
                   >
                     <i class="fa-solid fa-users"></i>
@@ -133,14 +132,14 @@ const UserProfile = ({ showSidebar }) => {
                 )}
                 <Link
                   id="donation"
-                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                   to="/donation"
                 >
                   <i className="fa-solid fa-hand-holding-dollar"></i>
                   <span className="mx-2">Donation</span>
                 </Link>
                 <Link
-                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark"
+                  className="d-flex flex-column flex-lg-row align-items-center p-2 text-dark text-decoration-none"
                   to="#"
                 >
                   <i className="fas fa-lock"></i>
@@ -173,32 +172,62 @@ const UserProfile = ({ showSidebar }) => {
                         />
                         <div className="ms-3 fw-bold">
                           {editProfileMode ? (
-                            <>
+                            <div className="row">
+                              <div className="col-md-6">
                               <input
                                 type="text"
                                 name="firstName"
                                 value={profileData.firstName}
                                 onChange={handleInputChange}
-                                className="form-control"
+                                className="form-control my-1"
                               />
+                              </div>
+                              <div className="col-md-6">
                               <input
                                 type="text"
                                 name="lastName"
                                 value={profileData.lastName}
                                 onChange={handleInputChange}
-                                className="form-control"
+                                className="form-control my-1"
                               />
-                              <p className="text-gray-600">
-                                Team Manager | Indore, India
-                              </p>
-                            </>
+                              </div>
+                              
+                              <div className="col-md-4">
+                                <input
+                                type="text"
+                                name="bio"
+                                value={profileData.bio}
+                                onChange={handleInputChange}
+                                className="form-control my-1"
+                              /> 
+                              </div>
+                              <div className="col-md-4">
+                              <input
+                                type="text"
+                                name="city"
+                                value={profileData.city}
+                                onChange={handleInputChange}
+                                className="form-control my-1"
+                              />
+                              </div>
+                              <div className="col-md-4">
+                               <input
+                                type="text"
+                                name="country"
+                                value={profileData.country}
+                                onChange={handleInputChange}
+                                className="form-control my-1"
+                              />
+                              </div>
+                              
+                            </div>
                           ) : (
                             <>
                               <h3 className="text-xl fw-bold">
                                 {profileData.firstName} {profileData.lastName}
                               </h3>
                               <p className="text-gray-600">
-                                Team Manager | Indore, India
+                              {profileData.bio} | {profileData.city}, {profileData.country}
                               </p>
                             </>
                           )}
@@ -358,22 +387,35 @@ const UserProfile = ({ showSidebar }) => {
                             className="form-control"
                           />
                         ) : (
-                          <p className="font-weight-bold">{profileData.country}</p>
+                          <p className="font-weight-bold">
+                            {profileData.country}
+                          </p>
                         )}
                       </div>
                       <div className="col-md-6 mb-3">
                         <p className="text-gray-600">City/State</p>
                         {editAddressMode ? (
+                          <>
+                          <p>
                           <input
                             type="text"
-                            name="cityState"
-                            value={profileData.cityState}
+                            name="city"
+                            value={profileData.city}
                             onChange={handleInputChange}
-                            className="form-control"
+                            className="form-control my-1"
                           />
+                          <input
+                            type="text"
+                            name="state"
+                            value={profileData.state}
+                            onChange={handleInputChange}
+                            className="form-control my-1"
+                          />
+                          </p>
+                          </>
                         ) : (
                           <p className="font-weight-bold">
-                            {profileData.cityState}
+                            {profileData.city}, {profileData.state}
                           </p>
                         )}
                       </div>

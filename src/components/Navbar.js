@@ -181,29 +181,16 @@ const Navbar = ({ children, onToggleSidebar }) => {
               )}
 
               {!isLoggedIn && (
-                // <div id='nav-login' className='mx-2'>
-                //   <Link
-                //     id="loginBtn"
-                //     className="btn btn-light border rounded-circle"
-                //     to="/login"
-                //   >
-                //     <i className="fa-solid fa-user"></i>
-                //   </Link>
-                // </div>
-
                 <div className="btn-group" ref={notificationDropdownRef}>
                   <button type="button" className="rounded-circle shadow-lg" data-bs-toggle="dropdown" aria-expanded="false">
                   <i className="fa-solid fa-user"></i>
                   </button>
-                  {/* <button type="button" className="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span className="visually-hidden">Toggle Dropdown</span>
-                  </button> */}
                   <ul className={`dropdown-menu ${dropdownClass}`}>
-                    <li><Link className="dropdown-item" to="/login">Admin</Link></li>
-                    <li><Link className="dropdown-item" to="#">Manager</Link></li>
-                    <li><Link className="dropdown-item" to="#">Member</Link></li>
+                    <li><Link className="dropdown-item" to="/login">Login</Link></li>
+                    <li><Link className="dropdown-item" to="/signup">SignUp</Link></li>
+                    {/* <li><Link className="dropdown-item" to="#">Member</Link></li>
                     <li><hr className="dropdown-divider"/></li>
-                    <li><Link className="dropdown-item" to="#">Guest</Link></li>
+                    <li><Link className="dropdown-item" to="#">Guest</Link></li> */}
                   </ul>
                 </div>
                 
